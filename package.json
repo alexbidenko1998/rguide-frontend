@@ -8,7 +8,9 @@
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint:js:fix": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
+    "lint:style:fix": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore --fix",
     "lint": "yarn lint:js && yarn lint:style"
   },
   "lint-staged": {
@@ -17,7 +19,6 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
   },

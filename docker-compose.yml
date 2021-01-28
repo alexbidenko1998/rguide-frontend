@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  nuxt:
+  rguide_application:
     restart: on-failure
     build: .
     command: yarn start
@@ -13,7 +13,7 @@ services:
     build: ./.nginx
     container_name: rguide_frontend
     depends_on:
-      - nuxt
+      - rguide_application
     networks:
       - app_network
 
