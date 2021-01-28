@@ -16,6 +16,7 @@ services:
       - rguide_application
     networks:
       - app_network
+      - server
 
 networks:
   app_network:
