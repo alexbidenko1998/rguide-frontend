@@ -8,7 +8,7 @@
   </v-row>
 </template>
 
-<script lang="ts">
+<script>
 import Card from '~/components/Card/Card.vue'
 
 export default {
