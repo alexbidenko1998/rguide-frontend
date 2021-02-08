@@ -9,21 +9,19 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
 import Card from '~/components/Card/Card.vue'
-import { ProductType } from '~/types/products'
 
-export default Vue.extend({
+export default {
   components: { Card },
 
   data: () => ({
-    products: [] as ProductType[],
+    products: [],
   }),
 
   async fetch() {
-    this.products = await this.$axios.$get<ProductType[]>('/products')
+    this.products = await this.$axios.$get('/products')
   },
-})
+}
 </script>
 
 <style lang="scss">
