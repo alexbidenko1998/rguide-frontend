@@ -56,9 +56,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -72,13 +69,13 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Главная',
           to: '/',
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
+          title: 'Справочная',
+          to: '/products',
         },
       ],
       miniVariant: false,
