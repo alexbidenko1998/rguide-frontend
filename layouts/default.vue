@@ -42,7 +42,7 @@
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container>
+      <v-container style="position: relative; min-height: 100%">
         <nuxt />
       </v-container>
     </v-main>
