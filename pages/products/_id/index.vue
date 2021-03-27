@@ -14,13 +14,14 @@ export default {
 
   mounted() {
     import('~/scripts/model').then((r) => {
-      const { scene, camera, renderer } = r.init(
+      const { scene, camera, renderer, controls } = r.init(
         this.$refs.container.scrollWidth,
         this.$refs.container.scrollHeight,
         this.$refs.container
       )
-      r.addElement(scene, camera)
+      r.addObject(scene, controls, renderer, camera)
       renderer.render(scene, camera)
+      controls.update()
     })
   },
 }
