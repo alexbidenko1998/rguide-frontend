@@ -6,6 +6,9 @@
 export default {
   data: () => ({
     product: null,
+    renderer: null,
+    scene: null,
+    camera: null,
   }),
 
   async fetch() {
@@ -22,10 +25,13 @@ export default {
     setTimeout(() => {
       import('~/scripts/model').then((model) => {
         const { scene, camera, renderer, controls } = model.init(
-          this.$refs.container.scrollWidth,
-          this.$refs.container.scrollHeight,
+          this.$refs.container.clientWidth,
+          this.$refs.container.clientHeight,
           this.$refs.container
         )
+        this.renderer = renderer
+        this.scene = scene
+        this.camera = camera
         model.addObject(
           `${process.env.BASE_API}/files/models/${this.product.model}`,
           scene,
@@ -37,6 +43,26 @@ export default {
         controls.update()
       })
     }, 200)
+    window.addEventListener('resize', this.resize)
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('resize', this.resize)
+  },
+
+  methods: {
+    resize() {
+      if (this.renderer && this.scene && this.camera) {
+        this.camera.aspect =
+          this.$refs.container.clientWidth / this.$refs.container.clientHeight
+        this.camera.updateProjectionMatrix()
+        this.renderer.setSize(
+          this.$refs.container.clientWidth,
+          this.$refs.container.clientHeight
+        )
+        this.renderer.render(this.scene, this.camera)
+      }
+    },
   },
 }
 </script>
@@ -48,6 +74,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 </style>
