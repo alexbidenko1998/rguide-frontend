@@ -5,24 +5,38 @@
 <script>
 export default {
   data: () => ({
-    products: [],
+    product: null,
   }),
 
   async fetch() {
-    this.products = await this.$axios.$get('/products')
+    try {
+      this.product = await this.$axios.$get(
+        `/products/${this.$route.params.id}`
+      )
+    } catch {
+      this.$nuxt.error({ statusCode: 404 })
+    }
   },
 
   mounted() {
-    import('~/scripts/model').then((r) => {
-      const { scene, camera, renderer, controls } = r.init(
-        this.$refs.container.scrollWidth,
-        this.$refs.container.scrollHeight,
-        this.$refs.container
-      )
-      r.addObject(scene, controls, renderer, camera)
-      renderer.render(scene, camera)
-      controls.update()
-    })
+    setTimeout(() => {
+      import('~/scripts/model').then((model) => {
+        const { scene, camera, renderer, controls } = model.init(
+          this.$refs.container.scrollWidth,
+          this.$refs.container.scrollHeight,
+          this.$refs.container
+        )
+        model.addObject(
+          `${process.env.BASE_API}/files/models/${this.product.model}`,
+          scene,
+          controls,
+          renderer,
+          camera
+        )
+        renderer.render(scene, camera)
+        controls.update()
+      })
+    }, 200)
   },
 }
 </script>

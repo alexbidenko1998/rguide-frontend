@@ -4,44 +4,26 @@
 >
   <v-img
     height="250"
-    src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+    :src="`${baseImageURL}${product.preview}`"
   ></v-img>
 
   <v-card-title>{{ product.title }}</v-card-title>
 
   <v-card-text>
     <div class="my-4 subtitle-1">
-      $ • Italian, Cafe
+      {{ product.description }}
     </div>
 
-    <div>{{ product.description }}</div>
+    <div>{{ product.specification }}</div>
   </v-card-text>
 
   <v-divider class="mx-4"></v-divider>
-
-  <v-card-title>Tonight's availability</v-card-title>
-
-  <v-card-text>
-    <v-chip-group
-      v-model="selection"
-      active-class="deep-purple accent-4 white--text"
-      column
-    >
-      <v-chip>5:30PM</v-chip>
-
-      <v-chip>7:30PM</v-chip>
-
-      <v-chip>8:00PM</v-chip>
-
-      <v-chip>9:00PM</v-chip>
-    </v-chip-group>
-  </v-card-text>
 
   <v-card-actions>
     <v-btn
       color="deep-purple lighten-2"
       text
-      to="/products/1"
+      :to="`/products/${product.id}`"
     >
       Перейти
     </v-btn>

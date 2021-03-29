@@ -10,4 +10,8 @@ export default Vue.extend({
       required: true,
     },
   },
+
+  data: () => ({
+    baseImageURL: `${process.env.BASE_API}/files/previews/`,
+  }),
 })

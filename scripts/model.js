@@ -43,23 +43,19 @@ export const addElement = (scene) => {
   scene.add(cube)
 }
 
-export const addObject = (scene, controls, renderer, camera) => {
+export const addObject = (url, scene, controls, renderer, camera) => {
   const gltfLoader = new GLTFLoader()
-  gltfLoader.load(
-    // 'https://threejsfundamentals.org/threejs/resources/models/cartoon_lowpoly_small_city_free_pack/scene.gltf',
-    'https://api-rguide.admire.social/files/models/file-802182080-Soldier.glb',
-    (gltf) => {
-      const model = gltf.scene
-      scene.add(model)
+  gltfLoader.load(url, (gltf) => {
+    const model = gltf.scene
+    scene.add(model)
 
-      model.traverse(function (object) {
-        if (object.isMesh) object.castShadow = true
-      })
-      const skeleton = new THREE.SkeletonHelper(model)
-      skeleton.visible = false
-      scene.add(skeleton)
-      controls.update()
-      renderer.render(scene, camera)
-    }
-  )
+    model.traverse(function (object) {
+      if (object.isMesh) object.castShadow = true
+    })
+    const skeleton = new THREE.SkeletonHelper(model)
+    skeleton.visible = false
+    scene.add(skeleton)
+    controls.update()
+    renderer.render(scene, camera)
+  })
 }

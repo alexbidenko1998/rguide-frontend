@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env BASE_API=http://localhost:8010 nuxt-ts",
+    "dev": "cross-env BASE_API=https://api-rguide.admire.social nuxt-ts",
     "dev:api": "cross-env BASE_API=https://api-rguide.admire.social nuxt-ts",
     "build": "cross-env BASE_API=https://api-rguide.admire.social nuxt-ts build",
     "start": "cross-env BASE_API=https://api-rguide.admire.social nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint:js:fix": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint:es": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint:es:fix": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "lint:style:fix": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore --fix",
     "lint": "yarn lint:js && yarn lint:style"
