@@ -12,7 +12,13 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" nuxt to="/products">Начать изучение</v-btn>
+          <v-btn
+            color="primary"
+            nuxt
+            to="/products"
+            aria-label="Перейти к изучению"
+            >Начать изучение</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-col>

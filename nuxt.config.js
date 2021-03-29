@@ -7,11 +7,37 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - RGuide-frontend',
-    title: 'RGuide-frontend',
+    title: 'RGuide - Лучший 3D справочник технического оборудования',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'theme-color',
+        name: 'theme-color',
+        content: '#272727',
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Лучший 3D справочник технического оборудования для технических специалистов и образовательный учреждений.',
+      },
+      {
+        hid: 'og:title',
+        name: 'og:title',
+        content: 'RGuide - Лучший 3D справочник технического оборудования.',
+      },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        content:
+          'Лучший 3D справочник технического оборудования для технических специалистов и образовательный учреждений.',
+      },
+      {
+        hid: 'og:image',
+        name: 'og:image',
+        content: '/icon.png',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -51,7 +77,8 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en',
+      lang: 'ru',
+      theme_color: '#272727',
     },
   },
 
