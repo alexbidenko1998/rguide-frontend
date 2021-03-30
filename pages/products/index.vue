@@ -1,12 +1,7 @@
 <template>
   <v-row class="productsPage">
     <v-col class="text-center">
-      <v-tabs
-        v-if="!search"
-        v-model="categoryIndex"
-        show-arrows
-        class="mb-4"
-      >
+      <v-tabs v-if="!search" v-model="categoryIndex" show-arrows class="mb-4">
         <v-tab v-for="c in categories" :key="c.id">{{ c.title }}</v-tab>
       </v-tabs>
 
