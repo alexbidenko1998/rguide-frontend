@@ -13,5 +13,6 @@ export default Vue.extend({
 
   data: () => ({
     baseImageURL: `${process.env.BASE_API}/files/previews/`,
+    show: false,
   }),
 })
