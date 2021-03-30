@@ -1,6 +1,12 @@
 <template>
   <div>
     <input
+      v-model="productId"
+      type="text"
+      placeholder="Product id"
+      style="background-color: white"
+    />
+    <input
       v-model="type"
       type="text"
       placeholder="preview or model"
@@ -16,6 +22,7 @@
 export default {
   data: () => ({
     file: null,
+    productId: '',
     type: '',
     filename: '',
   }),
@@ -28,6 +35,7 @@ export default {
       const fd = new FormData()
       fd.append('file', this.file)
       fd.append('type', this.type)
+      fd.append('productId', this.productId)
       this.$axios
         .$post('products/file', fd)
         .then((r) => {
