@@ -92,7 +92,7 @@ export default {
 .detailPage {
   min-height: 60vh;
 
-  &__modelCard {
+  & &__modelCard {
     width: 100%;
     display: flex;
     min-height: 60vh;
