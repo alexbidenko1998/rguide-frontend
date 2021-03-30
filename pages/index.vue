@@ -18,7 +18,7 @@
               nuxt
               to="/products"
               aria-label="Перейти к изучению"
-            >Начать изучение</v-btn
+              >Начать изучение</v-btn
             >
           </v-card-actions>
         </v-card>
