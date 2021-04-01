@@ -65,6 +65,11 @@ export default {
           title: 'Справочная',
           to: '/products',
         },
+        {
+          icon: 'mdi-apps',
+          title: 'Маркировка',
+          to: '/markers',
+        },
       ],
       right: true,
       rightDrawer: false,
