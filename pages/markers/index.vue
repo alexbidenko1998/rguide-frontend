@@ -1,7 +1,7 @@
 <template>
   <iframe
     class="markersPage"
-    src="https://docs.google.com/gview?url=https://rguide.admire.social/markers.docx"
+    src="https://view.officeapps.live.com/op/embed.aspx?src=https://rguide.admire.social/markers.docx"
   ></iframe>
 </template>
 

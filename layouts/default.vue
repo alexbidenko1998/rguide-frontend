@@ -30,7 +30,7 @@
         aria-label="Переключить дополнительные настройки"
         @click.stop="rightDrawer = !rightDrawer"
       >
-        <v-icon>mdi-menu</v-icon>
+        <v-icon>mdi-filter-outline</v-icon>
       </v-btn>
     </v-app-bar>
     <v-main>
@@ -56,17 +56,17 @@ export default {
       drawer: false,
       items: [
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-home',
           title: 'Главная',
           to: '/',
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-cube',
           title: 'Справочная',
           to: '/products',
         },
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-information-outline',
           title: 'Маркировка',
           to: '/markers',
         },

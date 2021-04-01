@@ -10,6 +10,7 @@
           label="Поиск"
           clearable
           class="productsPage__search"
+          prepend-inner-icon="mdi-magnify"
         />
 
         <v-row v-if="!groupedProducts">
