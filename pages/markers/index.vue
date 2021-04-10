@@ -5,12 +5,6 @@
   ></iframe>
 </template>
 
-<script>
-export default {
-  name: 'Markers',
-}
-</script>
-
 <style scoped>
 .markersPage {
   display: block;

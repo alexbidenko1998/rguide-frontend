@@ -2,15 +2,15 @@ version: "3.8"
 
 services:
   rguide_application:
-    restart: on-failure
+    restart: unless-stopped
     build: .
     command: yarn start
     networks:
       - app_network
 
   nginx:
-    restart: on-failure
-    build: ./.nginx
+    restart: unless-stopped
+    build: .nginx
     container_name: rguide_frontend
     depends_on:
       - rguide_application

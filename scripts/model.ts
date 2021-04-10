@@ -2,8 +2,13 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { PerspectiveCamera, Renderer, Scene } from 'three'
 
-export const init = (width, height, element) => {
+export const init = (
+  width: number,
+  height: number,
+  element: HTMLDivElement
+) => {
   const renderer = new THREE.WebGLRenderer({ antialias: true })
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.outputEncoding = THREE.sRGBEncoding
@@ -36,22 +41,18 @@ export const init = (width, height, element) => {
   }
 }
 
-export const addElement = (scene) => {
-  const geometry = new THREE.BoxGeometry()
-  const material = new THREE.MeshBasicMaterial({ color: 0x2288ff })
-  const cube = new THREE.Mesh(geometry, material)
-  scene.add(cube)
-}
-
-export const addObject = (url, scene, controls, renderer, camera) => {
+export const addObject = (
+  url: string,
+  scene: Scene,
+  controls: OrbitControls,
+  renderer: Renderer,
+  camera: PerspectiveCamera
+) => {
   const gltfLoader = new GLTFLoader()
   gltfLoader.load(url, (gltf) => {
     const model = gltf.scene
     scene.add(model)
 
-    model.traverse(function (object) {
-      if (object.isMesh) object.castShadow = true
-    })
     const skeleton = new THREE.SkeletonHelper(model)
     skeleton.visible = false
     scene.add(skeleton)
